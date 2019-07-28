@@ -41,10 +41,8 @@ public class PersonServiceImpl implements PersonService {
                 personDTO.getEmail(),
                 personDTO.getAddress(),
                 personDTO.getPicture_addr(),
-                personDTO.getGender(),
-                (personDTO.getType().toUpperCase()
-                        .equals(PersonUtil.PACIENT_STR)) ?
-                        PersonUtil.PACIENT: PersonUtil.WORKER,
+                PersonUtil.dtoToGender(personDTO.getGender()),
+                PersonUtil.dtoToType(personDTO.getType()),
                 1
         );
 
@@ -69,10 +67,8 @@ public class PersonServiceImpl implements PersonService {
         person.setEmail(personDTO.getEmail());
         person.setAddress(personDTO.getAddress());
         person.setPicture_addr(personDTO.getPicture_addr());
-        person.setGender(personDTO.getGender());
-        person.setPerson_type(personDTO.getType().toUpperCase()
-                        .equals(PersonUtil.PACIENT_STR) ?
-                        PersonUtil.PACIENT: PersonUtil.WORKER);
+        person.setGender(PersonUtil.dtoToGender(personDTO.getGender()));
+        person.setPerson_type(PersonUtil.dtoToType(personDTO.getType()));
 
         personRepository.saveAndFlush(person);
         return ResponseEntity

@@ -63,8 +63,8 @@ public class Person {
                 this.getEmail(),
                 this.getAddress(),
                 this.getPicture_addr(),
-                this.getGender(),
-                (this.getPerson_type() == PersonUtil.PACIENT) ? PersonUtil.PACIENT_STR: PersonUtil.WORKER_STR
+                PersonUtil.genderToDTO(this.getGender()),
+                PersonUtil.typeToDTO(this.getPerson_type())
         );
     }
 
