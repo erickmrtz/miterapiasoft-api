@@ -20,7 +20,6 @@ import java.util.List;
 @Service
 @Slf4j
 public class PersonServiceImpl implements PersonService {
-
     @Autowired
     PersonRepository personRepository;
 
@@ -77,7 +76,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public ResponseEntity<ApiResponse<List<PersonDTO>>> getAllPersons() {
+    public ResponseEntity<ApiResponse<List<PersonDTO>>> getAll() {
         log.info(LoggerInfo.info(PersonServiceImpl.class,LoggerInfo.GET_METHOD));
 
         List<Person> persons = personRepository.findAll();
@@ -90,7 +89,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public ResponseEntity<ApiResponse<PersonDTO>> getPerson(String dni) {
+    public ResponseEntity<ApiResponse<PersonDTO>> getOne(String dni) {
         Person person = personRepository.findByDni(dni);
         if(person == null){
             log.error(LoggerInfo.info(PersonServiceImpl.class,PersonUtil.ID_INCORRECT));

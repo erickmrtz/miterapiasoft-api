@@ -9,6 +9,6 @@ import java.util.List;
 public interface PersonService {
     ResponseEntity<ApiResponse<?>> save(PersonDTO personDTO);
     ResponseEntity<ApiResponse<?>> update(PersonDTO personDTO);
-    ResponseEntity<ApiResponse<List<PersonDTO>>> getAllPersons();
-    ResponseEntity<ApiResponse<PersonDTO>> getPerson(String dni);
+    ResponseEntity<ApiResponse<List<PersonDTO>>> getAll();
+    ResponseEntity<ApiResponse<PersonDTO>> getOne(String dni);
 }

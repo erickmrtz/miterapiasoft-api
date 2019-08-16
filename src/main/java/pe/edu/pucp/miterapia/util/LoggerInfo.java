@@ -5,6 +5,7 @@ public abstract class LoggerInfo {
     public static final String GET_METHOD = "Get Method";
     public static final String POST_METHOD = "Post Method";
     public static final String PUT_METHOD = "Put Method";
+    public static final String DEL_METHOD = "Delete Method";
 
     public static String info(Class class_name, Class object_name, String reason){
         return "[" + class_name.getName() + " ------> " + object_name.getSimpleName() + " received is " + reason + "]";

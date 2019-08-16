@@ -33,7 +33,7 @@ public class PersonController {
     @GetMapping(name = "/", produces = "application/json")
     public ResponseEntity<ApiResponse<List<PersonDTO>>> getAll(){
         log.info(LoggerInfo.info(PersonController.class,LoggerInfo.GET_METHOD));
-        return personService.getAllPersons();
+        return personService.getAll();
     }
 
     @PutMapping(name = "/", produces = "application/json")
@@ -45,6 +45,6 @@ public class PersonController {
     @GetMapping(name = "/{dni}", produces = "application/json")
     public ResponseEntity<ApiResponse<PersonDTO>> getById(@PathVariable(name = "dni") String dni){
         log.info(LoggerInfo.info(PersonController.class,LoggerInfo.GET_METHOD + "(" + dni +")"));
-        return personService.getPerson(dni);
+        return personService.getOne(dni);
     }
 }
